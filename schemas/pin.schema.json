@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://devcentr.org/schemas/tcf/pin.schema.json",
+  "title": "Toolchain pin",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ecosystem", "version"],
+  "properties": {
+    "ecosystem": { "type": "string", "minLength": 1 },
+    "version": { "type": "string", "minLength": 1 },
+    "channel": { "type": "string" },
+    "scope": {
+      "type": "string",
+      "enum": ["project", "user", "system"]
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://devcentr.org/schemas/tcf/upgrade.schema.json",
+  "title": "Toolchain upgrade plan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ecosystem", "from", "to"],
+  "properties": {
+    "ecosystem": { "type": "string", "minLength": 1 },
+    "from": { "type": "string" },
+    "to": { "type": "string" },
+    "transactional": { "type": "boolean", "default": true },
+    "rollbackTo": { "type": "string" }
+  }
+}

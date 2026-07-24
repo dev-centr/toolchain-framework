@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://devcentr.org/schemas/tcf/repair.schema.json",
+  "title": "Toolchain repair plan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ecosystem", "actions"],
+  "properties": {
+    "ecosystem": { "type": "string", "minLength": 1 },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "summary"],
+        "properties": {
+          "id": { "type": "string" },
+          "summary": { "type": "string" },
+          "idempotent": { "type": "boolean", "default": true },
+          "command": { "type": "string" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "ecosystem": "flutter",
+  "displayName": "Flutter",
+  "protocolVersion": 1,
+  "entrypoint": "",
+  "capabilities": [
+    "bootstrap",
+    "pin-resolve",
+    "health",
+    "repair",
+    "upgrade-rollback",
+    "surface-parity"
+  ],
+  "communityBridges": ["fvm", "puro", "mise"],
+  "notes": "Stub adapter: capabilities declared as target protocol surface. Official Flutter entrypoint does not yet own multi-version pinning; bridges remain until a first-party control plane exists."
+}

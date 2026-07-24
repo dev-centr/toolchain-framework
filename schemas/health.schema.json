@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://devcentr.org/schemas/tcf/health.schema.json",
+  "title": "Toolchain health report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["ecosystem", "components"],
+  "properties": {
+    "ecosystem": { "type": "string", "minLength": 1 },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "status"],
+        "properties": {
+          "id": { "type": "string" },
+          "status": {
+            "type": "string",
+            "enum": ["ok", "warn", "broken", "missing"]
+          },
+          "evidence": { "type": "string" }
+        }
+      }
+    }
+  }
+}

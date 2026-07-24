@@ -1,0 +1,50 @@
+= toolchain-framework (TCF)
+:description: Toolchain Framework — schemas and validators for Toolchain Control Plane compliance under the Toolchain Management Pattern.
+
+**Toolchain Framework (TCF)** helps ecosystem maintainers generate and validate xref:https://docs.devcentr.org/general-knowledge/latest/explanation/infrastructure/toolchain-control-plane.html[Toolchain Control Plane] implementations.
+
+It is **not** the pattern. The pattern lives in general-knowledge: link:https://docs.devcentr.org/general-knowledge/latest/explanation/infrastructure/toolchain-management.html[Toolchain Management Pattern].
+
+Lead name is **TCF**, not “Toolchain Management Framework” (TMF).
+
+== Layout
+
+[source]
+----
+contracts/protocol.sdl     # Human-readable protocol behaviors
+schemas/*.schema.json      # Machine-checkable contracts
+lib/src/                   # Validators (@dev-centr/toolchain-framework)
+scripts/validate.mjs       # CI entry: build + validate examples
+examples/                  # Stub adapters (e.g. flutter)
+docs/                      # AsciiDoc notes
+----
+
+== Develop
+
+[source,shell]
+----
+pnpm install
+pnpm run build
+pnpm run validate
+----
+
+CI runs the same `build` + `validate` jobs on push and pull request to `main`.
+
+== Consumers
+
+| Consumer | Use
+| Ecosystem maintainers | Author adapters; run validators; generate stubs (roadmap)
+| DevCentr TCM component | Links advisories to Pattern docs; future sync of contracts
+| Conformance CI | `pnpm run validate` against example + user adapters
+
+Default repo: `https://github.com/dev-centr/toolchain-framework.git`
+
+== Related
+
+* DevCentr component: `toolchain-management.adoc` (TCM)
+* DevCentr UI: `ecosystem-management.adoc`
+* Philosophy: general-knowledge Toolchain Management Pattern / Control Plane / TCF pages
+
+== Changelog
+
+See link:CHANGELOG.adoc[CHANGELOG.adoc].

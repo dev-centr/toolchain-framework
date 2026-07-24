@@ -1,0 +1,32 @@
+// Toolchain Management Protocol — behavioral contract (not a network protocol).
+// Philosophy: https://docs.devcentr.org/general-knowledge/latest/explanation/infrastructure/toolchain-management.html
+
+protocol {
+    id "toolchain-management"
+    version 1
+
+    behavior {
+        id "bootstrap"
+        summary "Install via OS package managers when possible; refresh PATH; post-install health gate."
+    }
+    behavior {
+        id "pin-resolve"
+        summary "Per-project pin > user default > system; owned by the official entrypoint."
+    }
+    behavior {
+        id "health"
+        summary "Machine-readable component status with evidence."
+    }
+    behavior {
+        id "repair"
+        summary "Ordered, idempotent repair actions from failures."
+    }
+    behavior {
+        id "upgrade-rollback"
+        summary "Transactional upgrades; revert to last known-good on failure."
+    }
+    behavior {
+        id "surface-parity"
+        summary "CLI, GUI, and ideally IDE/agent APIs expose the same verbs and model."
+    }
+}

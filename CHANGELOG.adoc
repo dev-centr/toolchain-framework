@@ -1,0 +1,9 @@
+= Changelog
+
+== 2026-07-24 — Initial scaffold
+
+* Contracts: `contracts/protocol.sdl` (Toolchain Management Protocol behaviors).
+* JSON Schemas: pin, health, repair, upgrade, protocol bundle.
+* TypeScript validators in `lib/`; `pnpm run build` + `pnpm run validate`.
+* Example stub: `examples/flutter-adapter.json`.
+* CI: `.github/workflows/ci.yml` (Node 22, build, validate).
