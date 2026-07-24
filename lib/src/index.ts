@@ -1,8 +1,6 @@
-﻿import { readFileSync, readdirSync } from "node:fs";
+﻿import { readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import Ajv2020 from "ajv/dist/2020.js";
-import addFormats from "ajv-formats";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -27,33 +25,42 @@ export interface AdapterStub {
   notes?: string;
 }
 
-export function schemasDir(root = join(__dirname, "..")): string {
+/** Package root when this module is loaded from `dist/`. */
+export function packageRoot(): string {
+  return join(__dirname, "..");
+}
+
+export function schemasDir(root = packageRoot()): string {
   return join(root, "schemas");
 }
 
-export function createValidator(root?: string) {
-  const ajv = new Ajv2020({ allErrors: true, strict: false });
-  addFormats(ajv);
-  const dir = schemasDir(root);
-  for (const name of readdirSync(dir)) {
-    if (!name.endsWith(".schema.json")) continue;
-    const schema = JSON.parse(readFileSync(join(dir, name), "utf8"));
-    ajv.addSchema(schema);
-  }
-  return ajv;
+export function listSchemaFiles(root = packageRoot()): string[] {
+  return readdirSync(schemasDir(root)).filter((n) =>
+    n.endsWith(".schema.json")
+  );
 }
 
-export function validateAdapter(
-  adapter: unknown,
-  root?: string
+/** Structural check without AJV (AJV used in scripts/validate.mjs for full schema). */
+export function assertAdapterShape(
+  value: unknown
 ): { ok: true; adapter: AdapterStub } | { ok: false; errors: string } {
-  const ajv = createValidator(root);
-  const validate = ajv.getSchema("https://dev-centr.org/schemas/tcf/adapter-stub.schema.json");
-  if (!validate) {
-    return { ok: false, errors: "adapter stub schema not registered" };
+  if (value === null || typeof value !== "object") {
+    return { ok: false, errors: "adapter must be an object" };
   }
-  if (validate(adapter)) {
-    return { ok: true, adapter: adapter as AdapterStub };
+  const a = value as Record<string, unknown>;
+  if (typeof a.ecosystem !== "string" || !a.ecosystem) {
+    return { ok: false, errors: "ecosystem required string" };
   }
-  return { ok: false, errors: ajv.errorsText(validate.errors) };
+  if (typeof a.protocolVersion !== "number" || a.protocolVersion < 1) {
+    return { ok: false, errors: "protocolVersion must be integer >= 1" };
+  }
+  if (!Array.isArray(a.capabilities) || a.capabilities.length < 1) {
+    return { ok: false, errors: "capabilities must be non-empty array" };
+  }
+  for (const c of a.capabilities) {
+    if (!PROTOCOL_BEHAVIORS.includes(c as ProtocolBehavior)) {
+      return { ok: false, errors: `unknown capability: ${String(c)}` };
+    }
+  }
+  return { ok: true, adapter: a as unknown as AdapterStub };
 }
