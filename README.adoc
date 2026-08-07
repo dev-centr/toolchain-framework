@@ -3,7 +3,28 @@ ifndef::env-github[:icons: font]
 :toclevels: 2
 :sectanchors:
 
-[[readme-top]]
+ifdef::env-github[]
+++++
+<a id="readme-top"></a>
+<div align="center">
+<a href="https://github.com/dev-centr/toolchain-framework/graphs/contributors"><img src="https://img.shields.io/github/contributors/dev-centr/toolchain-framework.svg?style=for-the-badge" alt="Contributors"></a>
+<a href="https://github.com/dev-centr/toolchain-framework/network/members"><img src="https://img.shields.io/github/forks/dev-centr/toolchain-framework.svg?style=for-the-badge" alt="Forks"></a>
+<a href="https://github.com/dev-centr/toolchain-framework/stargazers"><img src="https://img.shields.io/github/stars/dev-centr/toolchain-framework.svg?style=for-the-badge" alt="Stars"></a>
+<a href="https://github.com/dev-centr/toolchain-framework/issues"><img src="https://img.shields.io/github/issues/dev-centr/toolchain-framework.svg?style=for-the-badge" alt="Issues"></a>
+<a href="https://github.com/dev-centr/toolchain-framework/blob/main/LICENSE"><img src="https://img.shields.io/github/license/dev-centr/toolchain-framework.svg?style=for-the-badge" alt="License"></a>
+<br />
+<h3 align="center">toolchain-framework (TCF)</h3>
+<p align="center">
+Toolchain Framework (TCF): schemas and validators for Toolchain Control Plane compliance.<br /><a href="https://docs.devcentr.org/general-knowledge/latest/explanation/infrastructure/toolchain-control-plane.html"><strong>Explore the docs ·</strong></a><br /><br />
+<a href="https://github.com/dev-centr/toolchain-framework/issues">Report Bug</a>
+&middot;
+<a href="https://github.com/dev-centr/toolchain-framework/issues">Request Feature</a>
+</p>
+</div>
+++++
+endif::[]
+
+ifndef::env-github[]
 image:https://img.shields.io/github/contributors/dev-centr/toolchain-framework.svg?style=for-the-badge[Contributors,link=https://github.com/dev-centr/toolchain-framework/graphs/contributors]
 image:https://img.shields.io/github/forks/dev-centr/toolchain-framework.svg?style=for-the-badge[Forks,link=https://github.com/dev-centr/toolchain-framework/network/members]
 image:https://img.shields.io/github/stars/dev-centr/toolchain-framework.svg?style=for-the-badge[Stars,link=https://github.com/dev-centr/toolchain-framework/stargazers]
@@ -17,6 +38,7 @@ Toolchain Framework (TCF): schemas and validators for Toolchain Control Plane co
 link:https://docs.devcentr.org/general-knowledge/latest/explanation/infrastructure/toolchain-control-plane.html[Explore the docs] ·
 link:https://github.com/dev-centr/toolchain-framework/issues[Report Bug] ·
 link:https://github.com/dev-centr/toolchain-framework/issues[Request Feature]
+endif::[]
 
 == About The Project
 
