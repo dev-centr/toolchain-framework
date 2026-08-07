@@ -3,21 +3,12 @@ ifndef::env-github[:icons: font]
 :toclevels: 2
 :sectanchors:
 
-ifndef::env-github[]
+[[readme-top]]
 image:https://img.shields.io/github/contributors/dev-centr/toolchain-framework.svg?style=for-the-badge[Contributors,link=https://github.com/dev-centr/toolchain-framework/graphs/contributors]
 image:https://img.shields.io/github/forks/dev-centr/toolchain-framework.svg?style=for-the-badge[Forks,link=https://github.com/dev-centr/toolchain-framework/network/members]
 image:https://img.shields.io/github/stars/dev-centr/toolchain-framework.svg?style=for-the-badge[Stars,link=https://github.com/dev-centr/toolchain-framework/stargazers]
 image:https://img.shields.io/github/issues/dev-centr/toolchain-framework.svg?style=for-the-badge[Issues,link=https://github.com/dev-centr/toolchain-framework/issues]
 image:https://img.shields.io/github/license/dev-centr/toolchain-framework.svg?style=for-the-badge[License,link=https://github.com/dev-centr/toolchain-framework/blob/main/LICENSE]
-endif::[]
-
-ifdef::env-github[]
-image:https://img.shields.io/github/contributors/dev-centr/toolchain-framework.svg?style=for-the-badge[Contributors]
-image:https://img.shields.io/github/forks/dev-centr/toolchain-framework.svg?style=for-the-badge[Forks]
-image:https://img.shields.io/github/stars/dev-centr/toolchain-framework.svg?style=for-the-badge[Stars]
-image:https://img.shields.io/github/issues/dev-centr/toolchain-framework.svg?style=for-the-badge[Issues]
-image:https://img.shields.io/github/license/dev-centr/toolchain-framework.svg?style=for-the-badge[License]
-endif::[]
 
 = toolchain-framework (TCF)
 
@@ -34,6 +25,8 @@ link:https://github.com/dev-centr/toolchain-framework/issues[Request Feature]
 It is **not** the pattern. The pattern lives in general-knowledge: link:https://docs.devcentr.org/general-knowledge/latest/explanation/infrastructure/toolchain-management.html[Toolchain Management Pattern].
 
 Lead name is **TCF**, not "Toolchain Management Framework" (TMF).
+
+link:#readme-top[back to top]
 
 == Layout
 
@@ -58,6 +51,8 @@ pnpm run validate
 
 CI runs the same `build` + `validate` jobs on push and pull request to `main`.
 
+link:#readme-top[back to top]
+
 == Usage
 
 === Consumers
@@ -68,6 +63,8 @@ CI runs the same `build` + `validate` jobs on push and pull request to `main`.
 | Conformance CI | `pnpm run validate` against example + user adapters
 
 Default repo: `https://github.com/dev-centr/toolchain-framework.git`
+
+link:#readme-top[back to top]
 
 == Related
 
@@ -81,9 +78,13 @@ See link:CHANGELOG.adoc[CHANGELOG.adoc].
 
 See link:LICENSE[LICENSE].
 
+link:#readme-top[back to top]
+
 == Contact
 
 DevCentr.org — support@devcentr.org
 
 * Project: https://github.com/dev-centr/toolchain-framework
 * Site: https://devcentr.org
+
+link:#readme-top[back to top]
