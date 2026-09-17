@@ -15,7 +15,7 @@ ifdef::env-github[]
 <br />
 <h3 align="center">toolchain-framework (TCF)</h3>
 <p align="center">
-Toolchain Framework (TCF): schemas and validators for Toolchain Control Plane compliance.<br /><a href="https://docs.devcentr.org/general-knowledge/latest/explanation/infrastructure/toolchain-control-plane.html"><strong>Explore the docs ·</strong></a><br /><br />
+Toolchain Framework (TCF): schemas and validators for Toolchain Control Plane compliance.<br /><a href="https://docs.devcentr.org/tools/toolchain-framework/"><strong>Explore the docs »</strong></a><br /><br />
 <a href="https://github.com/dev-centr/toolchain-framework/issues">Report Bug</a>
 &middot;
 <a href="https://github.com/dev-centr/toolchain-framework/issues">Request Feature</a>
@@ -35,16 +35,16 @@ image:https://img.shields.io/github/license/dev-centr/toolchain-framework.svg?st
 
 Toolchain Framework (TCF): schemas and validators for Toolchain Control Plane compliance.
 
-link:https://docs.devcentr.org/general-knowledge/latest/explanation/infrastructure/toolchain-control-plane.html[Explore the docs] ·
+link:https://docs.devcentr.org/tools/toolchain-framework/[Explore the docs »] ·
 link:https://github.com/dev-centr/toolchain-framework/issues[Report Bug] ·
 link:https://github.com/dev-centr/toolchain-framework/issues[Request Feature]
 endif::[]
 
 == About The Project
 
-**Toolchain Framework (TCF)** helps ecosystem maintainers generate and validate xref:https://docs.devcentr.org/general-knowledge/latest/explanation/infrastructure/toolchain-control-plane.html[Toolchain Control Plane] implementations.
+**Toolchain Framework (TCF)** helps ecosystem maintainers generate and validate link:https://docs.devcentr.org/general-knowledge/latest/explanation/infrastructure/toolchain-control-plane.html[Toolchain Control Plane] implementations.
 
-It is **not** the pattern. The pattern lives in general-knowledge: link:https://docs.devcentr.org/general-knowledge/latest/explanation/infrastructure/toolchain-management.html[Toolchain Management Pattern].
+It is **not** the pattern. The pattern lives in general-knowledge: link:https://docs.devcentr.org/general-knowledge/latest/explanation/infrastructure/toolchain-management.html[Toolchain Management Pattern]. Practice-kit reference: link:https://docs.devcentr.org/tools/toolchain-framework/[TCF on docs.devcentr.org].
 
 Lead name is **TCF**, not "Toolchain Management Framework" (TMF).
 
@@ -59,7 +59,7 @@ schemas/*.schema.json      # Machine-checkable contracts
 lib/src/                   # Validators (@dev-centr/toolchain-framework)
 scripts/validate.mjs       # CI entry: build + validate examples
 examples/                  # Stub adapters (e.g. flutter)
-docs/                      # AsciiDoc notes
+docs/                      # Antora component (hub: docs.devcentr.org/tools/toolchain-framework/)
 ----
 
 == Installation
@@ -93,8 +93,13 @@ link:#readme-top[back to top]
 * DevCentr component: `toolchain-management.adoc` (TCM)
 * DevCentr UI: `ecosystem-management.adoc`
 * Philosophy: general-knowledge Toolchain Management Pattern / Control Plane / TCF pages
+* Practice kit: link:https://docs.devcentr.org/tools/toolchain-framework/[TCF docs]
 
-See link:CHANGELOG.adoc[CHANGELOG.adoc].
+== Changelog
+
+Dated notes live in link:CHANGELOG.adoc[CHANGELOG.adoc] and on the hub at link:https://docs.devcentr.org/tools/toolchain-framework/changelog.html[TCF changelog].
+
+link:#readme-top[back to top]
 
 == License
 

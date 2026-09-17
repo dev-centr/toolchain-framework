@@ -6,7 +6,7 @@
 
 * GitHub Actions no longer sets `pnpm/action-setup` `version:` next to `package.json` `packageManager` (that combination failed every run).
 * Install uses `--frozen-lockfile` against the committed lockfile.
-* Practice-kit pages live in this Antora component on the org hub (`docs.devcentr.org/toolchain-framework/`). Philosophy stays in general-knowledge.
+* Practice-kit pages live in this Antora component on the org hub (`docs.devcentr.org/tools/toolchain-framework/`). Philosophy stays in general-knowledge.
 
 == 2026-07-24 -- Initial scaffold
 
