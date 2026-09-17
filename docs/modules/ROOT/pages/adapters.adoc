@@ -1,0 +1,47 @@
+= Adapter stubs
+:navtitle: Adapter stubs
+:description: How to declare a TCF ecosystem adapter and validate it.
+
+An **adapter stub** maps an ecosystem’s existing toolkit into the Toolchain Management Protocol surface. Full generators and host lifecycle are roadmap; today stubs declare capabilities and are validated in CI.
+
+== Required fields
+
+[cols="1,2"]
+|===
+| Field | Notes
+
+| `ecosystem`
+| Non-empty string id (e.g. `flutter`).
+
+| `protocolVersion`
+| Integer ≥ 1.
+
+| `capabilities`
+| Non-empty array of protocol behavior ids (`bootstrap`, `pin-resolve`, `health`, `repair`, `upgrade-rollback`, `surface-parity`).
+|===
+
+Optional: `displayName`, `entrypoint`, `communityBridges`, `notes`.
+
+== Example (Flutter)
+
+[source,json]
+----
+{
+  "ecosystem": "flutter",
+  "displayName": "Flutter",
+  "protocolVersion": 1,
+  "entrypoint": "",
+  "capabilities": [
+    "bootstrap",
+    "pin-resolve",
+    "health",
+    "repair",
+    "upgrade-rollback",
+    "surface-parity"
+  ],
+  "communityBridges": ["fvm", "puro", "mise"],
+  "notes": "Stub adapter until a first-party control plane owns pinning."
+}
+----
+
+Place stubs under `examples/` (or your repo’s adapter path) and run `pnpm run validate`. Partial capability lists are allowed; validate reports missing behaviors without failing on that alone—schema and shape must still pass.

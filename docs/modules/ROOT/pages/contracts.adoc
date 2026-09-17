@@ -1,0 +1,41 @@
+= Contracts & schemas
+:navtitle: Contracts & schemas
+:description: Protocol behaviors and JSON Schemas shipped by Toolchain Framework.
+
+== Protocol (`contracts/protocol.sdl`)
+
+Behavioral contract for Toolchain Management Protocol version 1 (not a network protocol):
+
+[cols="1,2"]
+|===
+| Behavior id | Summary
+
+| `bootstrap`
+| Install via OS package managers when possible; refresh PATH; post-install health gate.
+
+| `pin-resolve`
+| Per-project pin > user default > system; owned by the official entrypoint.
+
+| `health`
+| Machine-readable component status with evidence.
+
+| `repair`
+| Ordered, idempotent repair actions from failures.
+
+| `upgrade-rollback`
+| Transactional upgrades; revert to last known-good on failure.
+
+| `surface-parity`
+| CLI, GUI, and ideally IDE/agent APIs expose the same verbs and model.
+|===
+
+== JSON Schemas (`schemas/`)
+
+| File | Role
+| `adapter.schema.json` | Ecosystem adapter stub (ecosystem, capabilities, bridges).
+| `pin.schema.json` | Pin / resolve contract.
+| `health.schema.json` | Health report contract.
+| `repair.schema.json` | Repair plan / apply contract.
+| `upgrade.schema.json` | Upgrade / rollback contract.
+
+Schema `$id` values use the `https://devcentr.org/schemas/tcf/` prefix. Library helpers `listSchemaFiles` / `schemasDir` locate them from the package root after `pnpm run build`.

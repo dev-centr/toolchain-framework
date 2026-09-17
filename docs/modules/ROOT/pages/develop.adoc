@@ -1,0 +1,29 @@
+= Develop & CI
+:navtitle: Develop & CI
+:description: Install, build, and validate the Toolchain Framework kit.
+
+== Prerequisites
+
+* Node.js 22 or newer
+* pnpm 9 (pinned via `packageManager` in `package.json`)
+
+== Commands
+
+[source,shell]
+----
+pnpm install
+pnpm run build
+pnpm run validate
+----
+
+`pnpm run ci` runs build then validate.
+
+== What validate checks
+
+. Every `schemas/*.schema.json` loads under AJV (draft 2020-12).
+. Each `examples/*.json` passes structural checks (`assertAdapterShape`) and the adapter JSON Schema.
+. `contracts/protocol.sdl` declares every protocol behavior id known to the library.
+
+== CI
+
+GitHub Actions on `main` (push and pull request) installs with the lockfile, builds TypeScript, then runs validate. pnpm version is taken from `package.json` `packageManager`—do not also set `version` on `pnpm/action-setup`.

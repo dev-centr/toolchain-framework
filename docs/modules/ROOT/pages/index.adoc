@@ -1,0 +1,6 @@
+= Toolchain Framework
+:description: Schemas and validators for Toolchain Control Plane compliance.
+
+The **Toolchain Framework (TCF)** defines schemas and validators that ecosystems implement to comply with the Toolchain Control Plane pattern.
+
+See also xref:general-knowledge::explanation/infrastructure/toolchain-framework.adoc[Toolchain Framework (pattern)] and xref:general-knowledge::explanation/infrastructure/toolchain-control-plane.adoc[Toolchain Control Plane] in General Knowledge.
