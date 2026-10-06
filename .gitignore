@@ -24,3 +24,5 @@ node_modules/
 !examples/**
 !docs/
 !docs/**
+!/.editorconfig
+!/.gitattributes
